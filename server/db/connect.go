@@ -16,6 +16,11 @@ const (
 	POSTGRES_DBNAME   = "go-graphql-sandbox"
 )
 
+var (
+	DB  *gorm.DB
+	err error
+)
+
 func Connect() {
 	opt := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
@@ -25,7 +30,7 @@ func Connect() {
 		POSTGRES_PASSWORD,
 		POSTGRES_DBNAME,
 	)
-	_, err := gorm.Open(
+	DB, err = gorm.Open(
 		"postgres",
 		opt,
 	)

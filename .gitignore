@@ -1,1 +1,3 @@
 .vscode
+/server/serve
+/db/data
